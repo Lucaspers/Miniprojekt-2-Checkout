@@ -1,1 +1,0 @@
-# Miniprojekt-2-Checkout
