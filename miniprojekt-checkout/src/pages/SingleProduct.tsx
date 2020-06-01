@@ -1,10 +1,9 @@
-export {}
-/* import React from 'react';
+import React from 'react';
 
-export default function SingleProductPage() {
-    return (
-        <>
-            <h1>Hello From SingleProduct Page</h1>
-        </>
-    )
-} */
+const SingleProductPage = () => (
+  <div className='Single Product Page'>
+        Single Product Page
+  </div>
+);
+
+export default SingleProductPage;

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const CartPage = () => (
-  <div className='CartPage'>
-      Cart Page
+const ContactPage = () => (
+  <div className='ContactPage'>
+      Contact Page
   </div>
 );
 
 
 
-export default CartPage;
+export default ContactPage;
