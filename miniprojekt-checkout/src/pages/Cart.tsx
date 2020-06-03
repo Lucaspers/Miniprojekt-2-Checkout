@@ -1,8 +1,8 @@
 import React from 'react';
 
 const CartPage = () => (
-  <div className='CartPage'>
-      Cart Page
+  <div className='CartPage'>     
+     Cart Page    
   </div>
 );
 
