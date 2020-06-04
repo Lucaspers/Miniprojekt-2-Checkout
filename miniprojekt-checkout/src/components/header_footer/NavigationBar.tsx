@@ -4,6 +4,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 import Routes from './Routes';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import CartDropDown from '../cart-dropdown/cart-dropdown.component';
 import {
   AppBar,
   Toolbar,
@@ -70,8 +71,10 @@ const NavigationBar: React.FC = (props: any) => {
             <Typography variant="h6" className={classes.title}>
               TECH STORE
             </Typography>
+          
             <ShoppingCartIcon/>
             <Button color="inherit">Login</Button>
+            
           </Toolbar>
         </AppBar>
       </div>
@@ -92,9 +95,11 @@ const NavigationBar: React.FC = (props: any) => {
                 </NavLink>
               );
             })}
+          
           </MenuList>
         </div>
       </Drawer>
+      <CartDropDown />
     </div>
   );
 };

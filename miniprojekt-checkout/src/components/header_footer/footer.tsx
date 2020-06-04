@@ -26,7 +26,7 @@ const footerStyle = makeStyles((theme) => ({
     const classes = footerStyle();
   
     return (
-      <div className={classes.root}>
+      <div className={classes.root}>      
         <Typography variant="h6" className={classes.title} >
             Copy Right Recerved 
         </Typography>         
