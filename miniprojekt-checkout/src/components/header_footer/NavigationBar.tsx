@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 
 import { NavLink, withRouter } from 'react-router-dom';
 import Routes from './Routes';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import CartDropDown from '../cart-dropdown/cart-dropdown.component';
+import CartIcon from '../../resources/icons/cart-icon.component';
 import {
   AppBar,
   Toolbar,
@@ -72,13 +73,14 @@ const NavigationBar: React.FC = (props: any) => {
               TECH STORE
             </Typography>
           
-            <ShoppingCartIcon/>
+            <CartIcon/>
+            <CartDropDown />
             <Button color="inherit">Login</Button>
             
           </Toolbar>
         </AppBar>
       </div>
-      <Drawer classes={{ paper: classes.drawer }} open={isOpen} onClose={toggleDrawer(false)}>
+      <Drawer open={isOpen} onClose={toggleDrawer(false)}>
         <div
           className={classes.fullList}
           role="presentation"
@@ -99,9 +101,38 @@ const NavigationBar: React.FC = (props: any) => {
           </MenuList>
         </div>
       </Drawer>
-      <CartDropDown />
+    
+     
     </div>
   );
 };
+
+/* interface hidden {
+  cart: ReactNode;
+  // any other props that come into the component
+}
+
+const mapStateToProps = ({ cart }: hidden) => (
+  <Button >{cart}</Button>
+); */
+
+/* let user = Users.find(user => user.id === query);
+for this:
+
+let mapStateToProps = state((currentUser: any) => user.id === query); 
+// use "any" or someother interface to type this argument
+
+
+const mapStateToProps = state => (currentUser: state.user.current }); */
+
+interface IProps {
+  children: ReactNode;
+  // any other props that come into the component
+}
+
+const Button1 = ({ children, ...props }: IProps) => (
+  <Button {...props}>{children}</Button>
+);
+
 
 export default withRouter(NavigationBar);
