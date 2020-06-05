@@ -6,6 +6,7 @@ import Routes from './components/header_footer/Routes';
 import Fotter from './components/header_footer/footer';
 import NavigationBar from './components/header_footer/NavigationBar';
 
+
 const App: React.FC = () => {
   return (
     <div>
