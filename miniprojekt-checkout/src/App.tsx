@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState, ReactNode } from 'react';
 import './App.css';
 
 import { Switch, Route } from 'react-router-dom';
 import Routes from './components/header_footer/Routes';
 import Fotter from './components/header_footer/footer';
 import NavigationBar from './components/header_footer/NavigationBar';
+import CartDropDown from './components/cart-dropdown/cart-dropdown.component';
+
+
 
 
 const App: React.FC = () => {
+
   return (
     <div>
       <NavigationBar />
@@ -19,16 +23,13 @@ const App: React.FC = () => {
         ))}
       </Switch>
       <Route  path='/' component={Fotter} />  
+      </div>
 
-    </div>
+    
   );
 }
 
 export default App;
-
-
-
-
 
 /* function App() {
   return (   
