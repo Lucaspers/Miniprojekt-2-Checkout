@@ -20,12 +20,11 @@ const StyledButton = withStyles({
     },
   })(Button);
 
-
-const CartDropdown = () => (
+const cartDropdown = () => (
     <div className='cart-dropdown'>
         <div className='cart-item' />
         <CustomButton>Go to CHECKOUT</CustomButton>
     </div>
 )
 
-export default CartDropdown;
+export default cartDropdown;
