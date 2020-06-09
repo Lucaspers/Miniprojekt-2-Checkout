@@ -17,14 +17,6 @@ const Home: React.FC = () => {
   );
 };
 
-const Cart: React.FC = () => {
-  return (
-    <h1>
-      <CartPage />
-    </h1>
-  );
-};
-
 const About: React.FC = () => {
   return (
     <h1>
@@ -32,6 +24,7 @@ const About: React.FC = () => {
     </h1>
   );
 };
+
 
 const Products: React.FC = () => {
   return (    
@@ -41,6 +34,7 @@ const Products: React.FC = () => {
   );
 };
 
+
 const Contact: React.FC = () => {
   return (    
     <h1>
@@ -49,32 +43,56 @@ const Contact: React.FC = () => {
   );
 };
 
+
+const SingleProduct: React.FC = () => {
+  return (
+    <h1>
+      <SingleProductPage />   
+    </h1>
+  );
+};
+
+const Cart: React.FC = () => {
+  return (
+    <h1>
+       <CartPage />
+    </h1>
+  );
+};
+
+
 const Routes = [
   {
+    id:1,
     path: '/',
     sidebarName: 'Home',
     component: Home
   },
   {
-    path: '/produc',
+    id:4,
+    path: '/about',
+    sidebarName: 'About',
+    component: About
+  },
+  {
+    id:2,
+    path: '/products',
     sidebarName: 'Products',
     component: Products
   },
   {
+    id:5,
+    path: '/contact',
+    sidebarName: 'Contact',
+    component: Contact
+  },
+  {
+    id:3,
     path: '/cart',
     sidebarName: 'Cart',
     component: Cart
   },
-  {
-    path: '/about',
-    sidebarName: 'About Us',
-    component: About
-  },
-  {
-    path: '/contact',
-    sidebarName: 'Contact Us',
-    component: Contact
-  },
+    
 ];
 
 export default Routes;

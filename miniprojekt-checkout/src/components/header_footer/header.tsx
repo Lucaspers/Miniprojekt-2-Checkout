@@ -11,7 +11,7 @@ const headerStyle = makeStyles((theme) => ({
       position:"fixed",
       display:"flex",
       background:"#212121", 
-      height:"3rem",
+      height:"5rem",
       justify:"space-between",
       align:"center",
       flexGrow: 1,

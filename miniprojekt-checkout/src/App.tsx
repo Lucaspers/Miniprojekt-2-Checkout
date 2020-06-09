@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState, ReactNode, Component } from 'react';
 import './App.css';
 
 import { Switch, Route } from 'react-router-dom';
@@ -7,10 +7,8 @@ import Fotter from './components/header_footer/footer';
 import NavigationBar from './components/header_footer/NavigationBar';
 import CartDropDown from './components/cart-dropdown/cart-dropdown.component';
 
-
-
-
-const App: React.FC = () => {
+class App extends Component {
+render () {
 
   return (
     <div>
@@ -23,12 +21,12 @@ const App: React.FC = () => {
         ))}
       </Switch>
       <Route  path='/' component={Fotter} />  
+  
       </div>
 
-    
   );
 }
-
+}
 export default App;
 
 /* function App() {

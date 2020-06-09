@@ -8,13 +8,33 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+
+export const addItemToCart = (cartItems, cartItemToAdd) => {
+    const existingCartItem = cartItems.find(
+      cartItem => cartItem.id === cartItemToAdd.id
+    );
+  
+    if (existingCartItem) {
+      return cartItems.map(cartItem =>
+        cartItem.id === cartItemToAdd.id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      );
+    }
+  
+    return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
+  };
+
+
+
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
   },
 });
 
-const ProductCard = (props: any) => {
+const ProductCard = (props) => {
   const classes = useStyles();
   const {id, img, title, description, price} = props;
   return (

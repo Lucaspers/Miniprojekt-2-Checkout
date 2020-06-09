@@ -16,7 +16,7 @@ const Content = () => {
         };
         
     return (
-        <Grid container spacing={4}>
+        <Grid container spacing={1}>
            {Products.map(productObj => getProducts(productObj))}
         </Grid>
     );

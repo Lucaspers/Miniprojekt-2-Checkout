@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
-
 import { Button } from '@material-ui/core';
 import CustomButton from '../buttons/customButton';
 import './cart-dropdown.style.scss';
 import { withStyles } from '@material-ui/core/styles';
+//import CartItem from '../cart-item/cart-item.component';
 
-const StyledButton = withStyles({
-    root: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      borderRadius: 3,
-      border: 0,
-      color: 'white',
-      height: 48,
-      padding: '0 30px',
-      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    },
-    label: {
-      textTransform: 'capitalize',
-    },
-  })(Button);
+/* const CartDropdown = ({ cartItems }) => (
+  <div className='cart-dropdown'>
+    <div className='cart-items'>
+      {cartItems.map(cartItem => (
+        <CartItem key={cartItem.id} item={cartItem} />
+      ))}
+    </div>
+    <CustomButton>GO TO CHECKOUT</CustomButton>
+  </div>
+);
+
+const mapStateToProps = ({ cart: { cartItems } }) => ({
+  cartItems
+});
+
+export default connect(mapStateToProps)(CartDropdown);
+ */
+
+
 
 const cartDropdown = () => (
     <div className='cart-dropdown'>

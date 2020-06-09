@@ -1,11 +1,12 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState, ReactNode, Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import Routes from './Routes';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import CartIcon from '../../resources/icons/cart-icon.component';
 import CartDropDown from '../cart-dropdown/cart-dropdown.component';
 import MenuIcon from '@material-ui/icons/Menu';
-import cartDropdown from '../cart-dropdown/cart-dropdown.component';
+import { ProductConsumer } from '../../context'
+//import CartItem from '../cart-dropdown/cart-item-component';
 import {
   AppBar,
   Toolbar,
@@ -24,20 +25,23 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     menuButton: {
-      marginRight: theme.spacing(2),
+      marginRight: theme.spacing(2),     
     },
     title: {
-      flexGrow: 1,
+      flexGrow: 1,    
     },
     drawer: {
-      width: 120,
+      width: 'auto'      
     },
+
     fullList: {
-      width: 'auto',
+      width: '150px',
+      top: "65px",
+      background: '#fafafa',      
+      transition: 'all 0,35 ease-in-out'
     },
   }),
 );
-
 
 function NavigationBar(props:any){    
   const classes = useStyles();
@@ -61,6 +65,13 @@ function NavigationBar(props:any){
     return props.location.pathname === routeName ? true : false;
   }
   return (
+
+    <ProductConsumer>
+    {(value:any) => {
+
+      const { cartItems, handleCart } = value;
+
+      return (
     <div>
       <div className={classes.root}>
         <AppBar position="static">
@@ -73,10 +84,10 @@ function NavigationBar(props:any){
             <Typography variant="h6" className={classes.title}>
               TECH STORE
             </Typography>
-          
-
+                   
             <div onClick={()=> setVisible(!visible)}>
             <CartIcon />
+
             </div>
             { visible && <CartDropDown />}   
              <div>               
@@ -85,12 +96,18 @@ function NavigationBar(props:any){
           </Toolbar>
         </AppBar>
       </div>
-      <Drawer open={isOpen} onClose={toggleDrawer(false)}>
-        <div
-          className={classes.fullList}
+      
+
+      <Drawer  
+      open={isOpen} 
+      onClose={toggleDrawer(false)}
+      classes={{ paper: classes.fullList }}
+      >
+        <div        
           role="presentation"
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
+          style= {{ top: '65px'}}
         >
          { <MenuList>
             {Routes.map((prop, key) => {
@@ -107,6 +124,10 @@ function NavigationBar(props:any){
         </div>
       </Drawer>     
     </div>
+    )
+     }}
+
+     </ProductConsumer>
   );
 };
 
