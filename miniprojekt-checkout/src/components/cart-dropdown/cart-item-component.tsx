@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
-//import './cart-item.styles.scss';
 import { ProductConsumer } from "../../context/context";
 import CardMedia from '@material-ui/core/CardMedia';
+import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+
+const styles = theme => ({
+  root: {
+    color: theme.palette.text.primary,
+  },
+  icon: {
+    margin: theme.spacing.unit,
+    fontSize: 32,
+  },
+});
 
 export default function CartItem() {
+  
   return (
     <ProductConsumer>
       {value => {
-        const { cart, cartTotal } = value;
+        const { cart, cartTotal, cartSubTotal,removeItem } = value;
         console.log(cart);
         return (
           <div>
@@ -15,7 +26,13 @@ export default function CartItem() {
               {cart.map(item => {
                  console.log(item);
                 return (
-                  <li key={item.id} >                   
+                  <li key={item.id} className="itemContainer">  
+                  
+                  <div className="deleteContainer">                                 
+                    <DeleteRoundedIcon className="deleteIcon" onClick={() => removeItem(item.id)} /> 
+                  </div>
+                 
+                  <div className="infoItem">                       
                   <CardMedia src={item.img}       
                   component="img"
                   alt="cart item"                                                     
@@ -23,8 +40,9 @@ export default function CartItem() {
                     <div className="mt-3">
                       <h6 className="text-uppercase">{item.title}</h6>
                       <h6 className="text-title text-capitalize" >
-                        amount : {item.count}
+                      SubTotal : {item.count} * {item.price} = ${cartSubTotal}
                       </h6>
+                    </div>
                     </div>
                   </li>
                 );
@@ -36,11 +54,13 @@ export default function CartItem() {
             <div className="text-center my-5">
               
             </div>
-          </div>
+          </div>          
         );
       }}
     </ProductConsumer>
+    
   );
+ 
 }
 
 

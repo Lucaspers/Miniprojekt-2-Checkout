@@ -102,15 +102,12 @@ console.log(storeProducts)
       cartItems += item.count;
     });
 
-    subTotal = parseFloat(subTotal.toFixed(2));
-    let tax = subTotal * 0.25;
-    tax = parseFloat(tax.toFixed(2));
-    let total = subTotal + tax;
-    total = parseFloat(total.toFixed(2));
+    subTotal = parseFloat(subTotal.toFixed(0));        
+    let total = subTotal;
+    total = parseFloat(total.toFixed(0));
     return {
       cartItems,
-      subTotal,
-      tax,
+      subTotal,     
       total
     };
   };
@@ -120,8 +117,7 @@ console.log(storeProducts)
     const totals = this.getTotals();
     this.setState({
       cartItems: totals.cartItems,
-      cartSubTotal: totals.subTotal,
-      cartTax: totals.tax,
+      cartSubTotal: totals.subTotal,     
       cartTotal: totals.total
     });
   };
@@ -167,25 +163,7 @@ console.log(storeProducts)
 
  
   //  cart functionality
-  // increment
-  increment = id => {
-    let tempCart = [...this.state.cart];
-    const cartItem = tempCart.find(item => item.id === id);
-    cartItem.count++;
-    cartItem.total = cartItem.count * cartItem.price;
-    cartItem.total = parseFloat(cartItem.total.toFixed(2));
-    this.setState(
-      () => {
-        return {
-          cart: [...tempCart]
-        };
-      },
-      () => {
-        this.addTotals();
-        this.syncStorage();
-      }
-    );
-  };
+ 
   // decrement
   decrement = id => {
     let tempCart = [...this.state.cart];
@@ -196,7 +174,7 @@ console.log(storeProducts)
       this.removeItem(id);
     } else {
       cartItem.total = cartItem.count * cartItem.price;
-      cartItem.total = parseFloat(cartItem.total.toFixed(2));
+      cartItem.total = parseFloat(cartItem.total.toFixed(0));
       this.setState(
         () => {
           return {
@@ -224,6 +202,7 @@ console.log(storeProducts)
       }
     );
   };
+
   clearCart = () => {
     this.setState(
       {
@@ -235,48 +214,7 @@ console.log(storeProducts)
       }
     );
   };
-  //handle filtering
-  handleChange = event => {
-    const name = event.target.name;
-    const value =
-      event.target.type === "checkbox"
-        ? event.target.checked
-        : event.target.value;
-    this.setState(
-      {
-        [name]: value
-      },
-      this.sortData
-    );
-  };
-  sortData = () => {
-    const { storeProducts, price, company, shipping, search } = this.state;
-
-    let tempPrice = parseInt(price);
-
-    let tempProducts = [...storeProducts];
-    // filtering based on price
-    tempProducts = tempProducts.filter(item => item.price <= tempPrice);
-    // filtering based on company
-    if (company !== "all") {
-      tempProducts = tempProducts.filter(item => item.company === company);
-    }
-    if (shipping) {
-      tempProducts = tempProducts.filter(item => item.freeShipping === true);
-    }
-    if (search.length > 0) {
-      tempProducts = tempProducts.filter(item => {
-        let tempSearch = search.toLowerCase();
-        let tempTitle = item.title.toLowerCase().slice(0, search.length);
-        if (tempSearch === tempTitle) {
-          return item;
-        }
-      });
-    }
-    this.setState({
-      filteredProducts: tempProducts
-    });
-  };
+  
 
   render() {
     return (
