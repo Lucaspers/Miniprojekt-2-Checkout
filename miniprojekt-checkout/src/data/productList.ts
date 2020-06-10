@@ -1,6 +1,6 @@
 interface Product{
     id: number;
-    img: object;
+    img: any;
     title: string;
     description: string;
     price: number;
@@ -8,8 +8,8 @@ interface Product{
 
 const Products: Product[] = [
     {
-        id: 1,       
-        img: {url: '../img/movie1.jpg'},       
+        id: 1,              
+        img: {url: '../img/movie1.jpg'},    
         title: 'Thor',
         description: 'Thor is a good movie about a god.',
         price: 149
