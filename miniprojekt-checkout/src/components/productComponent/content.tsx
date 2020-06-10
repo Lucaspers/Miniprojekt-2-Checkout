@@ -1,20 +1,24 @@
 import React from 'react';
-import ProductCard from './productCard';
 import { Grid } from '@material-ui/core';
-import Products, { Product } from '../../data/productList';
+import Products from '../../context/productList';
+import ProductCard from './productCard';
+import { ProductConsumer } from "../../context/context";
 
 const Content = () => {
-    const getProducts = (productObj: Product) => { 
-    return (
-       
-
-            <Grid item xs={12} sm={6} md={4} key={productObj.id}>
-                <ProductCard product={productObj} />
-            </Grid>
-            
+    const getProducts = (productObj: any) => { 
+          return (      
+  <ProductConsumer>
+            {value => {
+              const { allProdducts } = value;
+              return allProdducts.map(product => (
+                <Grid item xs={12} sm={6} md={4}>
+                  <ProductCard key={product.id} product={product} />
+                </Grid>
+              ));
+            }}
+          </ProductConsumer>            
             );
-        };
-        
+        };        
     return (
         <Grid container spacing={1}>
            {Products.map(productObj => getProducts(productObj))}
@@ -22,5 +26,4 @@ const Content = () => {
     );
 };
 
-
-export default Content;
+export default Content; 

@@ -9,14 +9,14 @@ export interface Product{
 
 const Products: Product[] = [
     {
-        id: 1,
+        id: 1,        
         img: require('../img/movie1.jpg'),
         title: 'Thor',
         description: 'Thor is a good movie about a god.',
         price: 149,
         featured: 'true'
     },{
-        id: 2,
+        id: 2,       
         img: require('../img/movie2.jpg'),
         title: 'James Bond',
         description: 'My name is Bond, James Bond 007',
@@ -31,21 +31,21 @@ const Products: Product[] = [
         featured: 'true'
     },{
         id: 4,
-        img: require('../img/movie2.jpg'),
+        img: require('../img/movie1.jpg'),
         title: 'James Bond',
         description: 'My name is Bond, James Bond 007',
         price: 129,
         featured: 'true'
     },{
         id: 5,
-        img: require('../img/movie3.jpg'),
+        img: require('../img/movie2.jpg'),
         title: 'Joker',
         description: 'Psychopath that likes to kill people.',
         price: 179,
         featured: 'true'
     },{
         id: 6,
-        img: require('../img/movie1.jpg'),
+        img: require('../img/movie3.jpg'),
         title: 'Thor',
         description: 'Thor is a good movie about a god.',
         price: 149,

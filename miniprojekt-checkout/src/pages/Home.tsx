@@ -3,23 +3,10 @@ import { Grid } from '@material-ui/core';
 import Content from '../components/productComponent/content';
 import { ProductConsumer } from "../context/context";
 
-/* const HomePage1 = () => (
-      <Grid container direction='column'>
-      <Grid item container>
-        <Grid item xs={12} sm={2} />
-        <Grid item xs={12} sm={8}>
-          <Content />
-        </Grid>
-        <Grid item xs={12} sm={2} />
-      </Grid>
-    </Grid>
-); */
-
 export default function HomePage() {
   return (
     <>
     <ProductConsumer>{(value: any ) => {
-      //console.log(value.storeProducts[0]['title'])
       return  (
         <Grid container direction='column'>
         <Grid item container>

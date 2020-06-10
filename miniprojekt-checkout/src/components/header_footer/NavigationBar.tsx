@@ -69,27 +69,29 @@ function NavigationBar(props:any){
     <ProductConsumer>
     {(value:any) => {
 
-      const { cartItems, handleCart } = value;
+      const { cartItems } = value;
 
       return (
     <div>
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+            
               <MenuIcon />
             </IconButton>
             
             <Typography variant="h6" className={classes.title}>
-              TECH STORE
+              FILMS STORE
             </Typography>
                    
             <div onClick={()=> setVisible(!visible)}>
+              
             <CartIcon />
 
             </div>
             { visible && <CartDropDown />}   
+           
              <div>               
              </div>
             <Button color="inherit">Login</Button>            
