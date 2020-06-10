@@ -20,13 +20,12 @@ export default function Product({ product }) {
   return (
     <ProductConsumer>      
       {value => {
-        const { addToCart, setSingleProduct } = value;
+        const { addToCart } = value;
         
         return (                    
               <Card >
                 <CardActionArea>               
-                  <CardMedia src={product.img}
-                  
+                  <CardMedia src={product.img}                  
                     component="img"
                     alt="Contemplative Reptile"
                     height="310"

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import items from '../data/productList';
+import items from './productList';
 
 const ProductContext = React.createContext();
 
@@ -55,8 +55,8 @@ getTotals = () => {
 // set products
 setProducts = products => {
     let storeProducts = products.map(item => {
-        const {id} = item.id;
-        const img = item.img.url;
+        const {id} = item.id;       
+        const img =  item.img;
         const product = { id, ...item, img };
         return product
 });

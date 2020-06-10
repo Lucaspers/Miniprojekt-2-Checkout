@@ -1,48 +1,55 @@
-interface Product{
+export interface Product{
     id: number;
-    img: any;
+    img: string;
     title: string;
     description: string;
     price: number;
+    featured: string;
 }
 
 const Products: Product[] = [
     {
-        id: 1,              
-        img: {url: '../img/movie1.jpg'},    
+        id: 1,        
+        img: require('../img/movie1.jpg'),
         title: 'Thor',
         description: 'Thor is a good movie about a god.',
-        price: 149
+        price: 149,
+        featured: 'true'
     },{
-        id: 2,
-        img: {url: '../img/movie2.jpg'},
+        id: 2,       
+        img: require('../img/movie2.jpg'),
         title: 'James Bond',
         description: 'My name is Bond, James Bond 007',
-        price: 129
+        price: 129,
+        featured: 'true'
     },{
         id: 3,
-        img: {url:'../img/movie3.jpg'},
+        img: require('../img/movie3.jpg'),
         title: 'Joker',
         description: 'Psychopath that likes to kill people.',
-        price: 179
+        price: 179,
+        featured: 'true'
     },{
         id: 4,
-        img: {url:'../img/movie2.jpg'},
+        img: require('../img/movie1.jpg'),
         title: 'James Bond',
         description: 'My name is Bond, James Bond 007',
-        price: 129
+        price: 129,
+        featured: 'true'
     },{
         id: 5,
-        img: {url:'../img/movie3.jpg'},
+        img: require('../img/movie2.jpg'),
         title: 'Joker',
         description: 'Psychopath that likes to kill people.',
-        price: 179
+        price: 179,
+        featured: 'true'
     },{
         id: 6,
-        img: {url:'../img/movie1.jpg'},
+        img: require('../img/movie3.jpg'),
         title: 'Thor',
         description: 'Thor is a good movie about a god.',
-        price: 149
+        price: 149,
+        featured: 'true'
     }
 ]
 export default Products;

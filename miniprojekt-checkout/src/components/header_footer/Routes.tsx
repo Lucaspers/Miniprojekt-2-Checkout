@@ -26,15 +26,6 @@ const About: React.FC = () => {
 };
 
 
-const Products: React.FC = () => {
-  return (    
-    <h1>
-      <ProductsPage />
-    </h1>
-  );
-};
-
-
 const Contact: React.FC = () => {
   return (    
     <h1>
@@ -52,13 +43,6 @@ const SingleProduct: React.FC = () => {
   );
 };
 
-const Cart: React.FC = () => {
-  return (
-    <h1>
-       <CartPage />
-    </h1>
-  );
-};
 
 
 const Routes = [
@@ -74,24 +58,14 @@ const Routes = [
     sidebarName: 'About',
     component: About
   },
-  {
-    id:2,
-    path: '/products',
-    sidebarName: 'Products',
-    component: Products
-  },
+  
   {
     id:5,
     path: '/contact',
     sidebarName: 'Contact',
     component: Contact
   },
-  {
-    id:3,
-    path: '/cart',
-    sidebarName: 'Cart',
-    component: Cart
-  },
+  
     
 ];
 

@@ -82,7 +82,7 @@ function NavigationBar(props:any){
             </IconButton>
             
             <Typography variant="h6" className={classes.title}>
-              TECH STORE
+              FILMS STORE
             </Typography>
                    
             <div onClick={()=> setVisible(!visible)}>
