@@ -38,19 +38,18 @@ getTotals = () => {
       cartItems += item.count;
     });
 
-    subTotal = parseFloat(subTotal.toFixed(2));
-    let tax = subTotal * 0.25;
-    tax = parseFloat(tax.toFixed(2));
-    let total = subTotal + tax;
-    total = parseFloat(total.toFixed(2));
+    subTotal = parseFloat(subTotal.toFixed(0));
+    //let tax = subTotal * 0.25;
+    //tax = parseFloat(tax.toFixed(2));
+    let total = subTotal;
+    total = parseFloat(total.toFixed(0));
     return {
       cartItems,
       subTotal,
-      tax,
+      //tax,
       total
     };
   };
-
 
 // set products
 setProducts = products => {

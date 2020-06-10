@@ -21,5 +21,30 @@
     button {
       margin-top: auto;
     }
+    .text-uppercase {
+      color: black;
+      margin: 0;
+      font-size: 1rem;
+  }
+
+  .text-capitalize {
+    color:#5fb7ea;
+    font-size: 1.5rem;
+}
+  .text-title {
+    color: black;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+}
+
+  img.MuiCardMedia-root.MuiCardMedia-media.MuiCardMedia-img {
+    width: 25px;
+}
+
+
+   
   }
   

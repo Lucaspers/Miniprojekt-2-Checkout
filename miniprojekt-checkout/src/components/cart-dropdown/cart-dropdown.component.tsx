@@ -6,7 +6,7 @@ import CartItem from './cart-item-component';
 
 const cartDropdown = () => (
     <div className='cart-dropdown'>
-        <div className='cart-item' />
+        <div />
           <div>
           <CartItem />
           </div>
