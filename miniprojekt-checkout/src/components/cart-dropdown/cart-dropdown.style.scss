@@ -13,7 +13,7 @@
     
   
     .cart-items {
-      height: 240px;
+      height: 260px;
       display: flex;
       flex-direction: column;
       overflow: scroll;
@@ -35,6 +35,7 @@
     font-size: 1.5rem;
     margin-bottom: 0;
     text-align: center;
+    margin-top: 5px;
 }
   .text-title {
     color: red;

@@ -43,7 +43,7 @@ export default function CartItem() {
               })}
             </ul>
             <h4 className="text-capitalize text-main">
-              cart total : {cartTotal}kr
+              Cart total : {cartTotal}kr
             </h4>
             <div className="text-center my-5">
               

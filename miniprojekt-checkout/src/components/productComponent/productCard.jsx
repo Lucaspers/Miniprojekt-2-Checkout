@@ -12,8 +12,7 @@ export default function Product({ product }) {
     return (
     <ProductConsumer>      
       {value => {
-        const { addToCart } = value;
-        
+        const { addToCart } = value;        
         return (                    
               <Card >
                 <CardActionArea>               

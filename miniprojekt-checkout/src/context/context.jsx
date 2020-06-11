@@ -11,8 +11,7 @@ class ProductProvider extends Component {
       storeProducts: [],
       price: 0,    
       cart: [],
-      cartItems: 0,
-      cartSubTotal: 0,
+      cartItems: 0,     
       cartTax: 0,
       carTotal: 0
     };
@@ -156,30 +155,7 @@ console.log(storeProducts)
  
   //  cart functionality
  
-  // subTotalItem
-  subTotalItem = id => {
-    let tempCart = [...this.state.cart];
-    const cartItem = tempCart.find(item => item.id === id);
-
-    if (cartItem.count === 0) {
-      this.removeItem(id);
-    } else {
-      cartItem.total = cartItem.count * cartItem.price;
-      cartItem.total = parseFloat(cartItem.total.toFixed(0));
-      this.setState(
-        () => {
-          return {
-            cart: [...tempCart]
-          };
-        },
-        () => {
-          this.addTotals();
-          this.syncStorage();
-        }
-      );
-    }
-  };
-
+  
   // removeItem
   removeItem = id => {
     let tempCart = [...this.state.cart];
@@ -215,8 +191,7 @@ console.log(storeProducts)
           ...this.state,         
           addToCart: this.addToCart,
           removeItem: this.removeItem,
-          clearCart: this.clearCart,
-          subTotalItem: this.subTotalItem,
+          clearCart: this.clearCart
         }}
       >
         {this.props.children}

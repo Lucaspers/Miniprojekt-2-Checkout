@@ -3,6 +3,7 @@ import React from 'react';
 import HomePage from './../../pages/Home';
 import AboutPage from './../../pages/About';
 import ContactPage from './../../pages/Contact';
+import CheckoutPage from './../../pages/Checkout';
 
 
 const Home: React.FC = () => {
@@ -30,6 +31,14 @@ const Contact: React.FC = () => {
   );
 };
 
+const Checkout: React.FC = () => {
+  return (    
+    <h1>
+      <CheckoutPage />
+    </h1>
+  );
+};
+
 
 
 const Routes = [
@@ -40,20 +49,26 @@ const Routes = [
     component: Home
   },
   {
-    id:4,
+    id:2,
     path: '/about',
     sidebarName: 'About',
     component: About
   },
   
   {
-    id:5,
+    id:3,
     path: '/contact',
     sidebarName: 'Contact',
     component: Contact
   },
-  
-    
+
+  {
+    id:4,
+    path: '/Checkout',
+    sidebarName: 'Checkout',    
+    component: Checkout
+  },
+ 
 ];
 
 export default Routes;

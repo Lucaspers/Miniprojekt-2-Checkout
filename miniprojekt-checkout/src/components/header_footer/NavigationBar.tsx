@@ -43,7 +43,8 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-function NavigationBar(props:any){    
+function NavigationBar(props:any){   
+   
   const classes = useStyles();
   const [visible, setVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -120,8 +121,7 @@ function NavigationBar(props:any){
                   </MenuItem>
                 </NavLink>
               );
-            })}
-          
+            })}          
           </MenuList>}
         </div>
       </Drawer>     
