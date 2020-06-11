@@ -6,7 +6,7 @@ import CartIcon from '../../resources/icons/cart-icon.component';
 import CartDropDown from '../cart-dropdown/cart-dropdown.component';
 import MenuIcon from '@material-ui/icons/Menu';
 import { ProductConsumer } from '../../context'
-//import CartItem from '../cart-dropdown/cart-item-component';
+
 import {
   AppBar,
   Toolbar,
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function NavigationBar(props:any){   
-   
+
   const classes = useStyles();
   const [visible, setVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -70,7 +70,6 @@ function NavigationBar(props:any){
     <ProductConsumer>
     {(value:any) => {
 
-      //const { cartItems } = value;
 
       return (
     <div>
@@ -86,11 +85,10 @@ function NavigationBar(props:any){
               FILMS STORE
             </Typography>
                    
-            <div onClick={()=> setVisible(!visible)}>
-              
+            <div onClick={()=> setVisible(!visible)}>              
             <CartIcon />
-
             </div>
+            
             { visible && <CartDropDown />}   
            
              <div>               

@@ -1,10 +1,8 @@
-
 import React from 'react';
 import HomePage from './../../pages/Home';
 import AboutPage from './../../pages/About';
 import ContactPage from './../../pages/Contact';
 import CheckoutPage from './../../pages/Checkout';
-
 
 const Home: React.FC = () => {
   return (
