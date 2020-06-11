@@ -8,7 +8,7 @@ export default function CartIcon() {
         <ProductConsumer>
         {value => {
     
-        const { cartItems, handleCart } = value;
+        const { cartItems } = value;
 
         return (
         <div className='cart-icon'>

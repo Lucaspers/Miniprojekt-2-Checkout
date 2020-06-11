@@ -1,24 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ProductConsumer } from "../../context/context";
 import CardMedia from '@material-ui/core/CardMedia';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 
-const styles = theme => ({
-  root: {
-    color: theme.palette.text.primary,
-  },
-  icon: {
-    margin: theme.spacing.unit,
-    fontSize: 32,
-  },
-});
 
 export default function CartItem() {
   
   return (
     <ProductConsumer>
       {value => {
-        const { cart, cartTotal, cartSubTotal,removeItem } = value;
+        const { cart, cartTotal, cartSubTotal,removeItem, addToCart } = value;
+   
         console.log(cart);
         return (
           <div>
@@ -40,7 +32,8 @@ export default function CartItem() {
                     <div className="mt-3">
                       <h6 className="text-uppercase">{item.title}</h6>
                       <h6 className="text-title text-capitalize" >
-                      SubTotal : {item.count} * {item.price} = ${cartSubTotal}
+                    
+                      SubTotal : = {item.count} * {item.price} = { addToCart.tempItem}
                       </h6>
                     </div>
                     </div>

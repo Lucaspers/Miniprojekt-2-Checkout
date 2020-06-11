@@ -1,11 +1,10 @@
-import React, { useState, ReactNode, Component } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
 import { Switch, Route } from 'react-router-dom';
 import Routes from './components/header_footer/Routes';
 import Fotter from './components/header_footer/footer';
 import NavigationBar from './components/header_footer/NavigationBar';
-import CartDropDown from './components/cart-dropdown/cart-dropdown.component';
 
 class App extends Component {
 render () {

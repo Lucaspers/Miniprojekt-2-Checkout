@@ -6,12 +6,7 @@ const ProductContext = React.createContext();
 // Provider
 // Consumer
 class ProductProvider extends Component {
-    state = {            
-      cart: [],
-      cartItems: 0,
-      cartSubTotal: 0,
-      cartTax: 0,
-      carTotal: 0,     
+    state = {   
       allProdducts:[],
       storeProducts: [],
       price: 0,    
@@ -20,7 +15,7 @@ class ProductProvider extends Component {
       cartSubTotal: 0,
       cartTax: 0,
       carTotal: 0,   
-          
+      subTotalItem: 0          
     };
 
 componentDidMount() {
@@ -33,20 +28,19 @@ componentDidMount() {
 getTotals = () => {
     let subTotal = 0;
     let cartItems = 0;
+    let subTotalItem = 0;
     this.state.cart.forEach(item => {
       subTotal += item.total;
       cartItems += item.count;
     });
-
-    subTotal = parseFloat(subTotal.toFixed(0));
-    //let tax = subTotal * 0.25;
-    //tax = parseFloat(tax.toFixed(2));
+    //subTotalItem = count * price;
+    subTotal = parseFloat(subTotal.toFixed(0));   
     let total = subTotal;
     total = parseFloat(total.toFixed(0));
     return {
       cartItems,
-      subTotal,
-      //tax,
+      subTotal, 
+      subTotalItem,  
       total
     };
   };
@@ -63,8 +57,7 @@ setProducts = products => {
 console.log(storeProducts)
 
     // all products
-    let allProdducts = storeProducts;
-    //let allProdducts = storeProducts.filter(item => item.id != -1);
+    let allProdducts = storeProducts;    
     this.setState(
       {
         storeProducts,     
@@ -97,6 +90,7 @@ console.log(storeProducts)
   getTotals = () => {
     let subTotal = 0;
     let cartItems = 0;
+    let  subTotalItem = 0;
     this.state.cart.forEach(item => {
       subTotal += item.total;
       cartItems += item.count;
@@ -108,6 +102,7 @@ console.log(storeProducts)
     return {
       cartItems,
       subTotal,     
+      subTotalItem,
       total
     };
   };
@@ -118,13 +113,15 @@ console.log(storeProducts)
     this.setState({
       cartItems: totals.cartItems,
       cartSubTotal: totals.subTotal,     
-      cartTotal: totals.total
+      cartTotal: totals.total,
+      subTotalItem: totals.subTotalItem
     });
   };
   // sync storage
   syncStorage = () => {
     localStorage.setItem("cart", JSON.stringify(this.state.cart));
   };
+
   //add to cart
   addToCart = id => {
     let tempCart = [...this.state.cart];

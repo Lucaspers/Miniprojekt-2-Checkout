@@ -2,11 +2,7 @@
 import React from 'react';
 import HomePage from './../../pages/Home';
 import AboutPage from './../../pages/About';
-import CartPage from './../../pages/Cart';
-import ProductsPage from './../../pages/ProductsPage';
 import ContactPage from './../../pages/Contact';
-import DefaultPage from './../../pages/Default';
-import SingleProductPage from './../../pages/SingleProduct';
 
 
 const Home: React.FC = () => {
@@ -30,15 +26,6 @@ const Contact: React.FC = () => {
   return (    
     <h1>
       <ContactPage />
-    </h1>
-  );
-};
-
-
-const SingleProduct: React.FC = () => {
-  return (
-    <h1>
-      <SingleProductPage />   
     </h1>
   );
 };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CustomButton from '../buttons/customButton';
 import './cart-dropdown.style.scss';
 import CartItem from './cart-item-component';

@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, Component } from 'react';
+import React, { useState } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import Routes from './Routes';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
@@ -69,7 +69,7 @@ function NavigationBar(props:any){
     <ProductConsumer>
     {(value:any) => {
 
-      const { cartItems } = value;
+      //const { cartItems } = value;
 
       return (
     <div>
