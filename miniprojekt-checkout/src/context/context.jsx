@@ -14,8 +14,7 @@ class ProductProvider extends Component {
       cartItems: 0,
       cartSubTotal: 0,
       cartTax: 0,
-      carTotal: 0,   
-      subTotalItem: 0          
+      carTotal: 0
     };
 
 componentDidMount() {
@@ -27,20 +26,18 @@ componentDidMount() {
 // get totals
 getTotals = () => {
     let subTotal = 0;
-    let cartItems = 0;
-    let subTotalItem = 0;
+    let cartItems = 0;   
     this.state.cart.forEach(item => {
       subTotal += item.total;
       cartItems += item.count;
     });
-    //subTotalItem = count * price;
+ 
     subTotal = parseFloat(subTotal.toFixed(0));   
     let total = subTotal;
     total = parseFloat(total.toFixed(0));
     return {
       cartItems,
-      subTotal, 
-      subTotalItem,  
+      subTotal,      
       total
     };
   };
@@ -89,8 +86,7 @@ console.log(storeProducts)
   // get totals
   getTotals = () => {
     let subTotal = 0;
-    let cartItems = 0;
-    let  subTotalItem = 0;
+    let cartItems = 0;   
     this.state.cart.forEach(item => {
       subTotal += item.total;
       cartItems += item.count;
@@ -101,8 +97,7 @@ console.log(storeProducts)
     total = parseFloat(total.toFixed(0));
     return {
       cartItems,
-      subTotal,     
-      subTotalItem,
+      subTotal,         
       total
     };
   };
@@ -113,8 +108,7 @@ console.log(storeProducts)
     this.setState({
       cartItems: totals.cartItems,
       cartSubTotal: totals.subTotal,     
-      cartTotal: totals.total,
-      subTotalItem: totals.subTotalItem
+      cartTotal: totals.total    
     });
   };
   // sync storage
@@ -135,6 +129,7 @@ console.log(storeProducts)
     } else {
       tempItem.count++;
       tempItem.total = tempItem.price * tempItem.count;
+      console.log(tempItem.total);
       tempItem.total = parseFloat(tempItem.total.toFixed(2));
     }
     this.setState(
@@ -161,12 +156,11 @@ console.log(storeProducts)
  
   //  cart functionality
  
-  // decrement
-  decrement = id => {
+  // subTotalItem
+  subTotalItem = id => {
     let tempCart = [...this.state.cart];
     const cartItem = tempCart.find(item => item.id === id);
 
-    cartItem.count = cartItem.count - 1;
     if (cartItem.count === 0) {
       this.removeItem(id);
     } else {
@@ -185,6 +179,7 @@ console.log(storeProducts)
       );
     }
   };
+
   // removeItem
   removeItem = id => {
     let tempCart = [...this.state.cart];
@@ -219,12 +214,9 @@ console.log(storeProducts)
         value={{
           ...this.state,         
           addToCart: this.addToCart,
-          setSingleProduct: this.setSingleProduct,
-          increment: this.increment,
-          decrement: this.decrement,
           removeItem: this.removeItem,
           clearCart: this.clearCart,
-          handleChange: this.handleChange
+          subTotalItem: this.subTotalItem,
         }}
       >
         {this.props.children}

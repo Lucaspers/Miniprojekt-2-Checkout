@@ -4,12 +4,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 
 
+
 export default function CartItem() {
   
   return (
     <ProductConsumer>
       {value => {
-        const { cart, cartTotal, cartSubTotal,removeItem, addToCart } = value;
+        const { cart, cartTotal,removeItem, id, title, price, count, total, image } = value;
    
         console.log(cart);
         return (
@@ -33,7 +34,7 @@ export default function CartItem() {
                       <h6 className="text-uppercase">{item.title}</h6>
                       <h6 className="text-title text-capitalize" >
                     
-                      SubTotal : = {item.count} * {item.price} = { addToCart.tempItem}
+                      Total : = {item.count} * {item.price} : {item.total} kr
                       </h6>
                     </div>
                     </div>
@@ -42,7 +43,7 @@ export default function CartItem() {
               })}
             </ul>
             <h4 className="text-capitalize text-main">
-              cart total : ${cartTotal}
+              cart total : {cartTotal}kr
             </h4>
             <div className="text-center my-5">
               
