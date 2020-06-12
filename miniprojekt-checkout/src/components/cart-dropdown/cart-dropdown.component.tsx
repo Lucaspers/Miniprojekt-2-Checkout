@@ -14,10 +14,7 @@ const cartDropdown = () => (
           <div>
           <CartItem />
           </div>       
-
-         
-            
-                     
+               
         <CustomButton > 
           <Link to="/Checkout" className="main-link" style={{ textDecoration: 'none',color: 'black' }} /* onClick={()=> setVisible(!visible)} */>
                CHECKOUT

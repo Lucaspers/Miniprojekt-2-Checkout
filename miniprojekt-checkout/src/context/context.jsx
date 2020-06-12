@@ -7,13 +7,12 @@ const ProductContext = React.createContext();
 // Consumer
 class ProductProvider extends Component {
     state = {   
-      allProdducts:[],
-      storeProducts: [],
+      allProdducts:[],     
       price: 0,    
       cart: [],
-      cartItems: 0,     
-      cartTax: 0,
-      carTotal: 0
+      cartItems: 0,          
+      carTotal: 0,
+      storeProducts: []
     };
 
 componentDidMount() {
@@ -50,8 +49,6 @@ setProducts = products => {
         return product
 });
 
-console.log(storeProducts)
-
     // all products
     let allProdducts = storeProducts;    
     this.setState(
@@ -66,6 +63,7 @@ console.log(storeProducts)
       }
     );
   };
+
   // get cart from local storage
   getStorageCart = () => {
     let cart;
@@ -76,12 +74,14 @@ console.log(storeProducts)
     }
     return cart;
   };
+
   // get product from local storage
   getStorageProduct = () => {
     return localStorage.getItem("singleProduct")
       ? JSON.parse(localStorage.getItem("singleProduct"))
       : {};
   };
+
   // get totals
   getTotals = () => {
     let subTotal = 0;
@@ -142,35 +142,10 @@ console.log(storeProducts)
       }
     );
   };
-  // set single product
-  setSingleProduct = id => {
-    let product = this.state.storeProducts.find(item => item.id === id);
-    localStorage.setItem("singleProduct", JSON.stringify(product));
-    this.setState({
-      singleProduct: { ...product },
-      loading: false
-    });
-  };
-
- 
+   
   //  cart functionality
  
-  
-  // removeItem
-  removeItem = id => {
-    let tempCart = [...this.state.cart];
-    tempCart = tempCart.filter(item => item.id !== id);
-    this.setState(
-      {
-        cart: [...tempCart]
-      },
-      () => {
-        this.addTotals();
-        this.syncStorage();
-      }
-    );
-  };
-
+   
   clearCart = () => {
     this.setState(
       {
@@ -189,9 +164,11 @@ console.log(storeProducts)
       <ProductContext.Provider
         value={{
           ...this.state,         
-          addToCart: this.addToCart,
-          removeItem: this.removeItem,
-          clearCart: this.clearCart
+          addToCart: this.addToCart,         
+          clearCart: this.clearCart,           
+          syncStorage: this.syncStorage,
+          addTotals: this.addTotals,
+          getTotals: this.getTotals,
         }}
       >
         {this.props.children}

@@ -47,6 +47,8 @@ function NavigationBar(props:any){
 
   const classes = useStyles();
   const [visible, setVisible] = useState(false);
+
+  // Hooks for open and hide sidebar
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = (open: boolean) => (
     event: React.KeyboardEvent | React.MouseEvent,
@@ -84,7 +86,10 @@ function NavigationBar(props:any){
             <Typography variant="h6" className={classes.title}>
               FILMS STORE
             </Typography>
-                   
+            
+
+            {/* Hooks for hide and show Cart dropdown */}
+
             <div onClick={()=> setVisible(!visible)}>              
             <CartIcon />
             </div>
@@ -99,6 +104,7 @@ function NavigationBar(props:any){
       </div>
       
 
+        {/* // Navigation between pages */}
       <Drawer  
       open={isOpen} 
       onClose={toggleDrawer(false)}
