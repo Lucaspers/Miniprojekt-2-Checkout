@@ -145,7 +145,22 @@ setProducts = products => {
    
   //  cart functionality
  
-   
+  
+  // removeItem
+  removeItem = id => {
+    let tempCart = [...this.state.cart];
+    tempCart = tempCart.filter(item => item.id !== id);
+    this.setState(
+      {
+        cart: [...tempCart]
+      },
+      () => {
+        this.addTotals();
+        this.syncStorage();
+      }
+    );
+  };
+
   clearCart = () => {
     this.setState(
       {
@@ -164,7 +179,8 @@ setProducts = products => {
       <ProductContext.Provider
         value={{
           ...this.state,         
-          addToCart: this.addToCart,         
+          addToCart: this.addToCart,
+          removeItem: this.removeItem,
           clearCart: this.clearCart,           
           syncStorage: this.syncStorage,
           addTotals: this.addTotals,
