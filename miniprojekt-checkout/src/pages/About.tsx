@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Typography}  from "@material-ui/core";
 
 
+
 const aboutStyle = makeStyles((theme) => ({
   root: {
     position:"fixed",
