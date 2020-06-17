@@ -10,11 +10,6 @@ const checkoutStyle = makeStyles((theme) => ({
   root: {
     position:"fixed",
     display:"flex",
-  
-   
-    
-    
-    
     
   },
   menuButton: {
@@ -64,7 +59,7 @@ export default function CartItem() {
   return (
     <ProductConsumer>
       {value => {
-        const { cart, cartTotal,removeItem, id, title, price, count, total, image } = value;
+        const { cart, cartTotal,removeItem } = value;
    
         console.log(cart);
         return (
