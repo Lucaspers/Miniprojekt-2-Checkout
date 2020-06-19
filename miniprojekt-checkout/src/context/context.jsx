@@ -12,7 +12,10 @@ class ProductProvider extends Component {
       cart: [],
       cartItems: 0,          
       carTotal: 0,
-      storeProducts: []
+      storeProducts: [],
+      singleProduct: {},
+      loading: true
+      
     };
 
 componentDidMount() {
@@ -57,6 +60,7 @@ setProducts = products => {
         allProdducts,
         cart: this.getStorageCart(),
         singleProduct: this.getStorageProduct(),        
+        loading: false
       },
       () => {
         this.addTotals();
@@ -143,6 +147,16 @@ setProducts = products => {
     );
   };
    
+
+  // set single product
+  setSingleProduct = id => {
+    let product = this.state.storeProducts.find(item => item.id === id);
+    localStorage.setItem("singleProduct", JSON.stringify(product));
+    this.setState({
+      singleProduct: { ...product },
+      loading: false
+    });
+  };
   //  cart functionality
  
   
@@ -185,6 +199,7 @@ setProducts = products => {
           syncStorage: this.syncStorage,
           addTotals: this.addTotals,
           getTotals: this.getTotals,
+          setSingleProduct: this.setSingleProduct,
         }}
       >
         {this.props.children}

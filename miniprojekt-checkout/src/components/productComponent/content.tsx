@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core';
 import Products from '../../data/productList';
 import ProductCard from './productCard';
 import { ProductConsumer } from "../../context/context";
+import { Link } from "react-router-dom";
 
 const Content = () => {
     const getProducts = (productObj: any) => { 
@@ -20,9 +21,11 @@ const Content = () => {
             );
         };        
     return (
+      <div>
         <Grid container spacing={4}>
            {Products.map(productObj => getProducts(productObj))}
         </Grid>
+        </div>
     );
 };
 
