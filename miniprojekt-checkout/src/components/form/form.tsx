@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import ShippmentGroup from './shippment';
 
 export default class ValidationForm extends React.Component {
     state = {
@@ -33,7 +34,7 @@ export default class ValidationForm extends React.Component {
                 ref="form"
                 onSubmit={this.handleSubmit}
             >
-                <h4>Customer Information</h4>
+                <h4>Kund Uppgifter</h4>
                 <TextValidator
                     label="Name"
                     onChange={this.handleChange}
@@ -81,6 +82,12 @@ export default class ValidationForm extends React.Component {
                     validators={['required']}
                     errorMessages={['this field is required']}
                 />
+                <br />
+                <h4>Fräkt</h4>
+
+                <br />
+                <ShippmentGroup />
+
                 <br />
                 <Button
                     color="primary"
