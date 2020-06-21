@@ -9,6 +9,7 @@ const CheckoutPage = () => (
        Check out Page
       < CartItem /> 
       < ValiationForm/>
+      
 
       
   </div>

@@ -4,7 +4,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import { makeStyles } from '@material-ui/core/styles';
 import {Typography}  from "@material-ui/core";
-import Box from '@material-ui/core/Box';
+
 
 const checkoutStyle = makeStyles((theme) => ({
   root: {
