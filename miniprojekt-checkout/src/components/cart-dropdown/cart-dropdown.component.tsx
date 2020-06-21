@@ -3,7 +3,7 @@ import CustomButton from '../buttons/customButton';
 import './cart-dropdown.style.scss';
 import CartItem from './cart-item-component';
 import { Link } from "react-router-dom";
-import CartDropDown from '../cart-dropdown/cart-dropdown.component';
+
 
 const cartDropdown = () => (
 
