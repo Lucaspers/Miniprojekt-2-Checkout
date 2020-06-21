@@ -1,16 +1,17 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import ShippmentGroup from './shippment';
 
-export default class ValidationForm extends React.Component {
+
+
+export default class CreditCard extends React.Component {
     state = {
         formData: {
             name: '',
-            lastname: '',
-            email: '',
-            password: '',
-            address: '',
+            cardnumber: '',
+            valid: '',
+            cvv: '',
+           
         },
         submitted: false,
     }
@@ -34,9 +35,9 @@ export default class ValidationForm extends React.Component {
                 ref="form"
                 onSubmit={this.handleSubmit}
             >
-                <h4>Kund Uppgifter</h4>
+                <h4>Pay with card</h4>
                 <TextValidator
-                    label="Name"
+                    label="Name on Card"
                     onChange={this.handleChange}
                     name="name"
                     value={formData.name}
@@ -46,44 +47,34 @@ export default class ValidationForm extends React.Component {
                 <br />
                
                 <TextValidator
-                    label="Last Name"
+                    label="Card Number"
                     onChange={this.handleChange}
-                    name="lastname"
-                    value={formData.lastname}
+                    name="cardnumber"
+                    value={formData.cardnumber}
                     validators={['required']}
                     errorMessages={['this field is required']}
                 />
                 <br />
                
+                <TextValidator
+                    label="Valid untill"
+                    onChange={this.handleChange}
+                    name="valid"
+                    value={formData.valid}
+                    validators={['required']}
+                    errorMessages={['this field is required']}
+                />
+                <br />
+                <TextValidator
+                    label="CVV"
+                    onChange={this.handleChange}
+                    name="cvv"
+                    value={formData.cvv}
+                    validators={['required']}
+                    errorMessages={['this field is required']}
+                />
+                <br />
                
-                <TextValidator
-                    label="Email"
-                    onChange={this.handleChange}
-                    name="email"
-                    value={formData.email}
-                    validators={['required', 'isEmail']}
-                    errorMessages={['this field is required', 'email is not valid']}
-                />
-                <br />
-                <TextValidator
-                    label="Password"
-                    onChange={this.handleChange}
-                    name="password"
-                    value={formData.password}
-                    validators={['required']}
-                    errorMessages={['this field is required']}
-                />
-                <br />
-                <TextValidator
-                    label="Address"
-                    onChange={this.handleChange}
-                    name="address"
-                    value={formData.address}
-                    validators={['required']}
-                    errorMessages={['this field is required']}
-                />
-                <br />
-                
                 <Button
                     color="primary"
                     variant="contained"

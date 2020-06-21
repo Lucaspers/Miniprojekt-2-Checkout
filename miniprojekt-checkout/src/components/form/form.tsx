@@ -2,6 +2,9 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import ShippmentGroup from './shippment';
+import CreditCard from './payment';
+
+
 
 export default class ValidationForm extends React.Component {
     state = {
@@ -89,6 +92,12 @@ export default class ValidationForm extends React.Component {
                 <ShippmentGroup />
 
                 <br />
+
+                <CreditCard />
+            
+
+                <br />
+
                 <Button
                     color="primary"
                     variant="contained"
