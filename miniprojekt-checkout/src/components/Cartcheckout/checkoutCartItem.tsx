@@ -67,13 +67,10 @@ export default function CartItem() {
           <div className={(classes.root, classes.centerTitle)}>
            
               {cart.map(item => {
-                 console.log(item);
                 return (
                 <div className={classes.containerBox} >
                   <div className={classes.cartSize}>
-                   
-                  
-                 
+                                     
                       <div className={classes.cartDetail} >
                       <span>Product</span>                       
                       <CardMedia className={classes.pic}src={item.img}       

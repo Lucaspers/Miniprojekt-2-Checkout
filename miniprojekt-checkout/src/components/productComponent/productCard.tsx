@@ -9,11 +9,15 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
+import { SCHED_NONE } from "cluster";
 
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+  },
+  text: {
+    textDecoration: "none",
   },
 });
 
@@ -22,10 +26,15 @@ const ProductCard = ({ product }) => {
     return (
     <ProductConsumer>      
       {value => {
-        const { addToCart } = value;        
+        const { addToCart, setSingleProduct } = value;        
         return (                    
-              <Card >
-                <CardActionArea>               
+              <Card>
+                  
+                <CardActionArea>  
+                <Link
+                    to={`/products/${product.id}`}
+                    onClick={() => setSingleProduct(product.id)}
+                  >               
                   <CardMedia src={product.img}                  
                     component="img"
                     alt="Contemplative Reptile"
@@ -33,7 +42,10 @@ const ProductCard = ({ product }) => {
                     width='auto'
                     title="Contemplative Reptile"
                   />
-                  <CardContent>
+                    </Link>
+                  <CardContent >
+                               
+                  
                     <Typography gutterBottom variant="h5" component="h2">
                       {product.title}
                     </Typography>
@@ -53,6 +65,7 @@ const ProductCard = ({ product }) => {
                     Köp
                   </Button>
                 </CardActions>
+              
               </Card>
             );
           }      
