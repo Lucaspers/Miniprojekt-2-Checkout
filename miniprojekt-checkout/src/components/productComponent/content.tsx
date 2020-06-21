@@ -6,14 +6,14 @@ import { ProductConsumer } from "../../context/context";
 import { Link } from "react-router-dom";
 
 const Content = () => {
-    const getProducts = (productObj: any) => { 
+    const getProducts = (product: any) => { 
           return (      
   <ProductConsumer>
             {value => {
               const { allProdducts } = value;
               return allProdducts.map(product => (
-                <Grid item xs={12} sm={6} md={4}>
-                  <ProductCard key={product.id} product={product} />
+                <Grid item xs={12} md={4}>
+                  <ProductCard product={product} />
                 </Grid>
               ));
             }}
@@ -23,7 +23,7 @@ const Content = () => {
     return (
       <div>
         <Grid container spacing={4}>
-           {Products.map(productObj => getProducts(productObj))}
+           {Products.map(product => getProducts(product))}
         </Grid>
         </div>
     );
