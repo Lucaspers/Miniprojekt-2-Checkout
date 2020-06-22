@@ -40,6 +40,7 @@ const checkoutStyle = makeStyles((theme) => ({
     width:"700px",
     height: "50px",
     padding: "30px",
+    marginTop: "70px"
 
   },
   cartDetail: {
@@ -107,7 +108,7 @@ export default function CartItem() {
                 );
               })}
             
-            <h4 className="text-capitalize text-main">
+            <h4  className={classes.cartSize}>
               Cart total : {cartTotal}kr
             </h4>
             <div className="text-center my-5">

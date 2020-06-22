@@ -3,10 +3,12 @@ import Button from '@material-ui/core/Button';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import ShippmentGroup from './shippment';
 import CreditCard from './payment';
+import SwishPaypal from './paymentSwishPaypal';
 
-
+ 
 
 export default class ValidationForm extends React.Component {
+
     state = {
         formData: {
             name: '',
@@ -32,11 +34,21 @@ export default class ValidationForm extends React.Component {
 
     render() {
         const { formData, submitted } = this.state;
+        const mystyle = {
+            margin: "20px",
+            padding: "10px",
+            
+          };
+        
         return (
+        
+           <div style={mystyle}>
             <ValidatorForm
+            
                 ref="form"
                 onSubmit={this.handleSubmit}
             >
+             
                 <h4>Kund Uppgifter</h4>
                 <TextValidator
                     label="Name"
@@ -92,24 +104,21 @@ export default class ValidationForm extends React.Component {
                 <ShippmentGroup />
 
                 <br />
+                <h4>Betala med Swish eller Paypal</h4>
+                
+                <SwishPaypal />
+
+                <br />
+
+                <h4>Betala med Kort</h4>
 
                 <CreditCard />
             
 
                 <br />
 
-                <Button
-                    color="primary"
-                    variant="contained"
-                    type="submit"
-                    disabled={submitted}
-                >
-                    {
-                        (submitted && 'Your form is submitted!')
-                        || (!submitted && 'Submit')
-                    }
-                </Button>
             </ValidatorForm>
+            </div>
         );
     }
 }

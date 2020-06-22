@@ -4,6 +4,7 @@ import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 
 
+
 export default class CreditCard extends React.Component {
     state = {
         formData: {
@@ -25,9 +26,14 @@ export default class CreditCard extends React.Component {
     handleSubmit = () => {
         this.setState({ submitted: true }, () => {
             setTimeout(() => this.setState({ submitted: false }), 5000);
+           
+         
+
         });
     }
 
+
+  
     render() {
         const { formData, submitted } = this.state;
         return (
@@ -35,7 +41,7 @@ export default class CreditCard extends React.Component {
                 ref="form"
                 onSubmit={this.handleSubmit}
             >
-                <h4>Pay with card</h4>
+               
                 <TextValidator
                     label="Name on Card"
                     onChange={this.handleChange}
@@ -73,19 +79,25 @@ export default class CreditCard extends React.Component {
                     validators={['required']}
                     errorMessages={['this field is required']}
                 />
+
                 <br />
+               
                
                 <Button
                     color="primary"
                     variant="contained"
                     type="submit"
                     disabled={submitted}
+                    
                 >
+                
                     {
                         (submitted && 'Your form is submitted!')
-                        || (!submitted && 'Submit')
+                        || (!submitted && 'Slutfor kop')
                     }
                 </Button>
+              
+
             </ValidatorForm>
         );
     }

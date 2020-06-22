@@ -1,20 +1,33 @@
 import React from 'react';
 import CartItem from '../components/Cartcheckout/checkoutCartItem';
 import ValiationForm from '../components/form/form';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
 
-const CheckoutPage = () => (
-  <div className='Checkout'>
-      
-       Check out Page
-      < CartItem /> 
-      < ValiationForm/>
-      
-
-      
-  </div>
+export default function CheckoutPage() {
 
   
-);
 
-export default CheckoutPage;
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="md" >
+        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100' }}>
+        
+
+        <div ><CartItem /></div>
+        
+        <div ><ValiationForm/></div>
+        
+        
+        </Typography>
+
+      </Container>
+    </React.Fragment>
+  );
+}
+    
+          
+       
