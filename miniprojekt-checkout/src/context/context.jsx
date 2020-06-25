@@ -114,6 +114,34 @@ setProducts = products => {
       cartTotal: totals.total    
     });
   };
+
+  //shippment
+
+  postNord = () => {
+    const totals = this.getTotals();
+    this.setState({
+          
+      cartTotal: totals.total +45   
+    });
+  };
+
+  dHL = () => {
+    const totals = this.getTotals();
+    this.setState({
+          
+      cartTotal: totals.total +80   
+    });
+  };
+  
+  exPress = () => {
+    const totals = this.getTotals();
+    this.setState({
+          
+      cartTotal: totals.total +120   
+    });
+  };
+  
+  
   // sync storage
   syncStorage = () => {
     localStorage.setItem("cart", JSON.stringify(this.state.cart));
@@ -199,6 +227,9 @@ setProducts = products => {
           syncStorage: this.syncStorage,
           addTotals: this.addTotals,
           getTotals: this.getTotals,
+          postNord: this.postNord,
+          dHL: this.dHL,
+          exPress: this.exPress,
           setSingleProduct: this.setSingleProduct,
         }}
       >

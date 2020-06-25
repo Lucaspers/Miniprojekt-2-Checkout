@@ -4,7 +4,7 @@ import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import ShippmentGroup from './shippment';
 import CreditCard from './payment';
 import SwishPaypal from './paymentSwishPaypal';
-
+import FinishButton from './finishButton';
  
 
 export default class ValidationForm extends React.Component {
@@ -116,6 +116,8 @@ export default class ValidationForm extends React.Component {
             
 
                 <br />
+
+                <FinishButton />
 
             </ValidatorForm>
             </div>
