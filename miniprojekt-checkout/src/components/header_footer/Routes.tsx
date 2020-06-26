@@ -3,6 +3,7 @@ import HomePage from './../../pages/Home';
 import AboutPage from './../../pages/About';
 import ContactPage from './../../pages/Contact';
 import CheckoutPage from './../../pages/Checkout';
+import SingleProductPage from '../../pages/SingleProduct';
 
 const Home: React.FC = () => {
   return (
@@ -37,7 +38,13 @@ const Checkout: React.FC = () => {
   );
 };
 
-
+const SingleProduct: React.FC = () => {
+  return (    
+    <h1>
+      <SingleProductPage />
+    </h1>
+  );
+};
 
 const Routes = [
   {
@@ -65,6 +72,13 @@ const Routes = [
     path: '/Checkout',
     sidebarName: 'Checkout',    
     component: Checkout
+  },
+
+  {
+    id:5,
+    path: '/SingleProduct',
+    sidebarName: 'SingleProduct',    
+    component: SingleProduct
   },
  
 ];

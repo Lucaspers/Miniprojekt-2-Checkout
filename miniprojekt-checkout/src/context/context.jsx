@@ -173,11 +173,11 @@ setProducts = products => {
        
       }
     );
-  };
-   
+  };   
 
   // set single product
   setSingleProduct = id => {
+    console.log(id);
     let product = this.state.storeProducts.find(item => item.id === id);
     localStorage.setItem("singleProduct", JSON.stringify(product));
     this.setState({

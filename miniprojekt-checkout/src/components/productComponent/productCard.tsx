@@ -33,7 +33,7 @@ const ProductCard = ({ product }) => {
                   
                 <CardActionArea>  
                 <Link
-                    to={`/products/${product.id}`}
+                    to={`/SingleProduct`}
                     onClick={() => setSingleProduct(product.id)}
                   >               
                   <CardMedia src={product.img}                  
@@ -42,7 +42,7 @@ const ProductCard = ({ product }) => {
                     height="310"
                     width='auto'
                     title="Contemplative Reptile"
-                  />
+                  />                  
                     </Link>
                   <CardContent >
                                
