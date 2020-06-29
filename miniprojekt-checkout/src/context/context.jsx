@@ -11,7 +11,8 @@ class ProductProvider extends Component {
       price: 0,    
       cart: [],
       cartItems: 0,          
-      carTotal: 0,
+      cartTotal: 0,
+      tax: 0,
       storeProducts: [],
       singleProduct: {},
       loading: true
@@ -88,32 +89,51 @@ setProducts = products => {
 
   // get totals
   getTotals = () => {
-    let subTotal = 0;
-    let cartItems = 0;   
-    this.state.cart.forEach(item => {
-      subTotal += item.total;
-      cartItems += item.count;
-    });
+   
+      
+      let cartItems = 0;
+    
+      this.state.cart.forEach(item => {
+      
+        cartItems += item.count;
+      });
 
-    subTotal = parseFloat(subTotal.toFixed(0));        
-    let total = subTotal;
-    total = parseFloat(total.toFixed(0));
+    let subTotal = 0;
+    this.state.cart.map(item => (subTotal += item.total));
+    const tempTax = subTotal * 0.1;
+    const tax = parseFloat(tempTax.toFixed(2));
+    const total = subTotal + tax;
     return {
-      cartItems,
-      subTotal,         
-      total
+       cartItems,
+       subTotal,
+       tax,
+       total
+     
     };
   };
-  //add totals
-  
+
+
+
+
   addTotals = () => {
     const totals = this.getTotals();
-    this.setState({
-      cartItems: totals.cartItems,
-      cartSubTotal: totals.subTotal,     
-      cartTotal: totals.total    
-    });
+    this.setState(
+      () => {
+        return {
+          cartItems: totals.cartItems,
+          cartSubTotal: totals.subTotal,
+          cartTax: totals.tax,
+          cartTotal: totals.total,
+          
+        };
+      },
+      () => {
+        // console.log(this.state);
+      }
+    );
   };
+
+
 
   //shippment
 

@@ -40,7 +40,7 @@ const checkoutStyle = makeStyles((theme) => ({
     display: "flex",
     width:"700px",
     height: "50px",
-    padding: "30px",
+    padding: "20px",
     marginTop: "20px"
 
   },
@@ -61,7 +61,7 @@ export default function CartItem() {
   return (
     <ProductConsumer>
       {value => {
-        const { cart, cartTotal,removeItem } = value;
+        const { cartTax, cart, cartTotal,removeItem } = value;
    
         console.log(cart);
         return (
@@ -97,6 +97,8 @@ export default function CartItem() {
                       <div className={classes.cartDetail}> 
                         <span>Total</span>
                       <h6>
+                       
+
                          {item.total} kr
                       </h6>
                       </div>
@@ -109,10 +111,15 @@ export default function CartItem() {
                   </div>
                 );
               })}
-            
-            <h4  className={classes.cartSize}>
+            <h4>
+              Moms : {cartTax}kr 
+              
+            </h4>
+            <h4>
+              
               Cart total : {cartTotal}kr
             </h4>
+
             <div className="text-center my-5">
               
             </div>

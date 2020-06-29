@@ -10,7 +10,7 @@ export default function CartItem() {
   return (
     <ProductConsumer>
       {value => {
-        const { cart, cartTotal,removeItem } = value;
+        const { cartTax, cart, cartTotal,removeItem } = value;
    
         console.log(cart);
         return (
@@ -43,6 +43,10 @@ export default function CartItem() {
               })}
             </ul>
             <h4 className="text-capitalize text-main">
+              
+
+              Moms : {cartTax}kr <br />
+
               Cart total : {cartTotal}kr
             </h4>
             <div className="text-center my-5">
