@@ -16,15 +16,14 @@ export default function FinishButton() {
           console.log(cart);
           return (
             
-            
+            <Link style={{ textDecoration: 'none' }} to="/">
                <Button  onClick={() => {
                 clearCart();
                 alert('Thank You for Shopping with Us');
               }} variant="contained" color="secondary">
-               Slutförköp <Link to="/Home"></Link>
+               Slutförköp
                 </Button>
-               
-
+              </Link>
                
                    
                 

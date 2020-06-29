@@ -16,7 +16,7 @@ const Products: Product[] = [
     },{
         id: 2,       
         img: require('../img/movie2.jpg'),
-        title: 'James Bond',
+        title: 'Bond',
         description: 'My name is Bond, James Bond 007',
         price: 129,
     },{
@@ -28,7 +28,7 @@ const Products: Product[] = [
     },{
         id: 4,
         img: require('../img/movie1.jpg'),
-        title: 'James Bond',
+        title: 'Bond',
         description: 'My name is Bond, James Bond 007',
         price: 129,
     },{

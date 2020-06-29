@@ -123,6 +123,7 @@ setProducts = products => {
           
       cartTotal: totals.total +45   
     });
+
   };
 
   dHL = () => {

@@ -10,6 +10,7 @@ const checkoutStyle = makeStyles((theme) => ({
   root: {
     position:"fixed",
     display:"flex",
+    marginTop: "80px",
     
   },
   menuButton: {
@@ -40,12 +41,12 @@ const checkoutStyle = makeStyles((theme) => ({
     width:"700px",
     height: "50px",
     padding: "30px",
-    marginTop: "70px"
+    marginTop: "20px"
 
   },
   cartDetail: {
     
-    paddingRight: "100px",
+    paddingRight: "30px",
   },
   
 }));
@@ -66,9 +67,10 @@ export default function CartItem() {
         return (
           <Typography>
           <div className={(classes.root, classes.centerTitle)}>
-           
+          <h1>Dina Varor</h1>
               {cart.map(item => {
-                return (
+                return ( 
+               
                 <div className={classes.containerBox} >
                   <div className={classes.cartSize}>
                                      
@@ -93,9 +95,9 @@ export default function CartItem() {
                       </div>
 
                       <div className={classes.cartDetail}> 
-                        <span>Total Price</span>
+                        <span>Total</span>
                       <h6>
-                        {item.count} * {item.price} : {item.total} kr
+                         {item.total} kr
                       </h6>
                       </div>
                       

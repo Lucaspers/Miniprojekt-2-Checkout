@@ -5,7 +5,6 @@ import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 
 
-
 export default class CreditCard extends React.Component {
     state = {
         formData: {
@@ -91,7 +90,7 @@ export default class CreditCard extends React.Component {
                     disabled={submitted}
                     
                 >
-               
+                
                     {
                         (submitted && 'Your form is submitted!')
                         || (!submitted && 'Betala')

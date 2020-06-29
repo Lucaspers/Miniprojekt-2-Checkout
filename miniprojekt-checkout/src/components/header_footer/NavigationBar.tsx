@@ -5,7 +5,8 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import CartIcon from '../../resources/icons/cart-icon.component';
 import CartDropDown from '../cart-dropdown/cart-dropdown.component';
 import MenuIcon from '@material-ui/icons/Menu';
-import { ProductConsumer } from '../../context'
+import { ProductConsumer } from '../../context';
+import { Link } from "react-router-dom";
 
 import {
   AppBar,
@@ -84,7 +85,10 @@ function NavigationBar(props:any){
             </IconButton>
             
             <Typography variant="h6" className={classes.title}>
+              
+            <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
               FILMS STORE
+            </Link>
             </Typography>
             
 

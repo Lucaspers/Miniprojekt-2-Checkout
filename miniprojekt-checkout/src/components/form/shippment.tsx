@@ -20,6 +20,9 @@ export default function ShippmentGroup() {
           const { cart, postNord, dHL, exPress } = value;
      
           console.log(cart);
+
+
+          
           return (
 
     <FormControl component="fieldset">

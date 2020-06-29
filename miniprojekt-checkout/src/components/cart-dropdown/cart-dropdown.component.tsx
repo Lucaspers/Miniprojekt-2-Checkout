@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CustomButton from '../buttons/customButton';
 import './cart-dropdown.style.scss';
 import CartItem from './cart-item-component';
 import { Link } from "react-router-dom";
 
 
-const cartDropdown = () => (
+const CartDropdown = () => (
 
+  
   /* const [visible, setVisible] = useState(true); */
 
     <div className='cart-dropdown'>
@@ -24,4 +25,4 @@ const cartDropdown = () => (
 </div>   
 
 )
-export default cartDropdown;
+export default CartDropdown;

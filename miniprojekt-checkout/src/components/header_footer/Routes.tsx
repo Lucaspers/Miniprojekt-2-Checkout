@@ -77,7 +77,7 @@ const Routes = [
   {
     id:5,
     path: '/SingleProduct',
-    sidebarName: 'SingleProduct',    
+    sidebarName: '',    
     component: SingleProduct
   },
  
