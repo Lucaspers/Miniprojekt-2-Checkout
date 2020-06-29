@@ -11,6 +11,7 @@ const checkoutStyle = makeStyles((theme) => ({
     position:"fixed",
     display:"flex",
     marginTop: "80px",
+   
     
   },
   menuButton: {
@@ -40,18 +41,17 @@ const checkoutStyle = makeStyles((theme) => ({
     display: "flex",
     width:"700px",
     height: "50px",
-    padding: "20px",
-    marginTop: "20px"
+    padding: "5px",
+    marginTop: "20px",
+    marginLeft: "20px",
 
   },
   cartDetail: {
     
-    paddingRight: "30px",
+    paddingRight: "20px",
   },
   
 }));
-
-
 
 
 export default function CartItem() {
@@ -61,7 +61,7 @@ export default function CartItem() {
   return (
     <ProductConsumer>
       {value => {
-        const { cartTax, cart, cartTotal,removeItem } = value;
+        const {cartTax, cart, cartTotal,removeItem, increment, decrement } = value;
    
         console.log(cart);
         return (
@@ -84,7 +84,7 @@ export default function CartItem() {
                     
                       <div className={classes.cartDetail}>
                       <span>Title</span>
-                      <h6 className="text-uppercase">{item.title}</h6>
+                      <h6 className="">{item.title}</h6>
                       </div>
 
                       <div className={classes.cartDetail}>
@@ -104,7 +104,27 @@ export default function CartItem() {
                       </div>
                       
                       <div className={classes.cartDetail}><DeleteRoundedIcon  onClick={() => removeItem(item.id)} /> </div>                               
-                     
+                      <div className="">
+                      <div>
+                        <span
+                          className=""
+                          onClick={() => {
+                            return decrement(item.id);
+                          }}
+                        >
+                          -
+                        </span>
+                        <span className="">{item.count}</span>
+                        <span
+                          className=""
+                          onClick={() => {
+                            return increment(item.id);
+                          }}
+                        >
+                          +
+                        </span>
+                      </div>
+                    </div>
                    
                     
                     </div> 
@@ -120,9 +140,7 @@ export default function CartItem() {
               Cart total : {cartTotal}kr
             </h4>
 
-            <div className="text-center my-5">
-              
-            </div>
+            
             </div>
           
           </Typography>        

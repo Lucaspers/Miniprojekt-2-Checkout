@@ -113,8 +113,6 @@ setProducts = products => {
   };
 
 
-
-
   addTotals = () => {
     const totals = this.getTotals();
     this.setState(
@@ -133,6 +131,47 @@ setProducts = products => {
     );
   };
 
+//increment and decrement
+
+  increment = id => {
+    let tempCart = [...this.state.cart];
+    const selectedProduct = tempCart.find(item => {
+      return item.id === id;
+    });
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count = product.count + 1;
+    product.total = product.count * product.price;
+    this.setState(() => {
+      return {
+        cart: [...tempCart]
+      };
+    }, this.addTotals);
+    this.syncStorage();
+  };
+
+  decrement = id => {
+    let tempCart = [...this.state.cart];
+    const selectedProduct = tempCart.find(item => {
+      return item.id === id;
+    });
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count = product.count - 1;
+    if (product.count === 0) {
+      this.removeItem(id);
+    } else {
+      product.total = product.count * product.price;
+      this.setState(() => {
+        return { cart: [...tempCart] };
+      }, this.addTotals);
+
+        this.syncStorage();
+      
+    }
+  };
+
+
 
 
   //shippment
@@ -142,24 +181,32 @@ setProducts = products => {
     this.setState({
           
       cartTotal: totals.total +45   
-    });
+    }
+    
+    
+    );
 
   };
 
   dHL = () => {
     const totals = this.getTotals();
+   
     this.setState({
           
-      cartTotal: totals.total +80   
-    });
+      cartTotal: totals.total + 80 
+    }
+   
+    );
+    
   };
   
   exPress = () => {
     const totals = this.getTotals();
-    this.setState({
-          
-      cartTotal: totals.total +120   
-    });
+    this.setState( {
+      cartTotal: totals.total + 120   
+    },
+
+    );
   };
   
   
@@ -248,6 +295,8 @@ setProducts = products => {
           syncStorage: this.syncStorage,
           addTotals: this.addTotals,
           getTotals: this.getTotals,
+          increment: this.increment,
+          decrement: this.decrement,
           postNord: this.postNord,
           dHL: this.dHL,
           exPress: this.exPress,
