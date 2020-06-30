@@ -7,7 +7,10 @@ import { ProductConsumer } from "../../context/context";
 
 const Content = () => {
     const getProducts = (product: any) => { 
-          return (      
+    
+          return (   
+            <Grid container spacing={4}>
+   
   <ProductConsumer>
             {value => {
               const { allProdducts } = value;
@@ -17,16 +20,18 @@ const Content = () => {
                 </Grid>
               ));
             }}
-          </ProductConsumer>            
+          </ProductConsumer>    
+          </Grid>        
             );
+          
         };        
-    return (
+    /* return (
       <div>
         <Grid container spacing={4}>
            {Products.map(product => getProducts(product))}
         </Grid>
         </div>
-    );
+    ); */
 };
 
 export default Content; 

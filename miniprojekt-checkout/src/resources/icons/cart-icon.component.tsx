@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactComponent as ShoppingIcon} from './shopping-bag.svg';
 import './cart-icon.styles.scss';
-import { ProductConsumer } from '../../context'
+import { ProductConsumer } from '../../context/context'
 
 export default function CartIcon() {
          return (
