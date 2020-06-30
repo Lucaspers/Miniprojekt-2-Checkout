@@ -6,11 +6,8 @@ import { ProductConsumer } from "../../context/context";
 
 
 const Content = () => {
-    const getProducts = (product: any) => { 
-    
-          return (   
-            <Grid container spacing={4}>
-   
+          return (    
+            <Grid container spacing={4}>  
   <ProductConsumer>
             {value => {
               const { allProdducts } = value;
@@ -20,18 +17,9 @@ const Content = () => {
                 </Grid>
               ));
             }}
-          </ProductConsumer>    
-          </Grid>        
-            );
-          
-        };        
-    /* return (
-      <div>
-        <Grid container spacing={4}>
-           {Products.map(product => getProducts(product))}
-        </Grid>
-        </div>
-    ); */
-};
+  </ProductConsumer>    
+  </Grid>        
+  );
+  };
 
 export default Content; 
