@@ -16,9 +16,7 @@ const aboutStyle = makeStyles((theme) => ({
     marginTop: "-22px",
     
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
+ 
   title: {
     flexGrow: 1,
   },
@@ -43,8 +41,8 @@ export default function aboutPage() {
     <div className={classes.root} >
       <Typography variant="h6" className={classes.title} >               
           <h1 className={classes.centerTitle}>Contact Us</h1>
-          <p  className={(classes.textMargin, classes.centerTitle)}>Tel:00991115555</p>
-          <p className={(classes.textMargin, classes.centerTitle)}>Email:movies@movies.com</p>
+          <p  className={(classes.textMargin, classes.centerTitle)}>Tel:00001115555</p>
+          <p className={(classes.textMargin, classes.centerTitle)}>Email:films@flimstore.com</p>
       </Typography>
     </div>
   );

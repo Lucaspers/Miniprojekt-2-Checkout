@@ -24,7 +24,7 @@ import Grid from '@material-ui/core/Grid';
         
           return (
             <div className={classes.root}>
-              <Grid container spacing={3}>
+              <Grid container spacing={2}>
                 
                 <Grid item xs={12} sm={6}>
                   <Paper className={classes.paper}><CartItem /></Paper>

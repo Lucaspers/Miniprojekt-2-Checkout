@@ -108,7 +108,7 @@ function NavigationBar(props:any){
       </div>
       
 
-        {/* // Navigation between pages */}
+        {/* Navigation between pages */}
       <Drawer  
       open={isOpen} 
       onClose={toggleDrawer(false)}

@@ -1,37 +1,24 @@
-import React from 'react';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
+import React from "react";
 import { ProductConsumer } from "../../context/context";
 
 
 export default function ShippmentGroup() {
-  const [value, setValue] = React.useState('PostNord');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
+  
   
   return (
 
       <ProductConsumer>
         {value => {
-          const { cart, postNord, dHL, exPress } = value;
-     
-          console.log(cart);
-
-
+          const { freeShipping, postNord, dHL, exPress } = value;
           
           return (
 
-    <FormControl component="fieldset">
-      <RadioGroup aria-label="shippment" name="shipment1" value={value} onChange={handleChange}>
-        <FormControlLabel onClick={() => postNord()} value="PostNord" control={<Radio />} label="PostNord- 45 Kr. fräkt inom 48 timmar" />
-        <FormControlLabel onClick={() => dHL()} value="DHL" control={<Radio />} label="DHL- 80 Kr. fräkt inom 24 timmar" />
-        <FormControlLabel onClick={() => exPress()} value="Express Delivery" control={<Radio />} label=" Express Delivery- 120 Kr. fräkt inom 12 timmar" />
-      </RadioGroup>
-    </FormControl>
+              <form>
+              <input onClick={() => freeShipping()}type="radio" name="shipping" value="free" defaultChecked={true} /><p style={{fontSize: "12px"}}>Fri Frakt inom 5 dagar</p>
+              <input onClick={() => postNord()} type="radio" name="shipping" value="PostNord" /><p style={{fontSize: "12px"}}>PostNord- 45 Kr. fräkt inom 48 timmar</p>
+              <input onClick={() => dHL()} type="radio" name="shipping" value="DHL" /><p style={{fontSize: "12px"}}>DHL- 80 Kr. fräkt inom 24 timmar</p>
+              <input onClick={() => exPress()} type="radio" name="shipping" value="express" /><p style={{fontSize: "12px"}}>Express Delivery- 120 Kr. fräkt inom 12 timmar</p>
+              </form>
 
   );
   }}

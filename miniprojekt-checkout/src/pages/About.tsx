@@ -17,9 +17,7 @@ const aboutStyle = makeStyles((theme) => ({
     marginTop: "-22px",
     
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
+  
   title: {
     flexGrow: 1,
   },

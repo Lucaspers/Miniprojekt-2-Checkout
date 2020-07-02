@@ -1,6 +1,5 @@
 import React from "react";
 import { ProductConsumer } from "../../context/context";
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -11,19 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
 
 
-
-
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  text: {
-    textDecoration: "none",
-  },
-});
-
 const ProductCard = ({ product }) => {
-  const classes = useStyles();
+  
     return (
     <ProductConsumer>      
       {value => {
@@ -46,7 +34,6 @@ const ProductCard = ({ product }) => {
                     </Link>
                   <CardContent >
                                
-                  
                     <Typography gutterBottom variant="h5" component="h2">
                       {product.title}
                     </Typography>
@@ -56,7 +43,9 @@ const ProductCard = ({ product }) => {
                     <Typography gutterBottom variant="h6" component="h2">
                       {product.price} Kr
                     </Typography>
+
                   </CardContent>
+
                 </CardActionArea>
                 <CardActions>
                   <Button size="small" color="primary"
@@ -75,46 +64,3 @@ const ProductCard = ({ product }) => {
        );
       }
       export default ProductCard;
-
-
-      /* const useStyles = makeStyles({
-        root: {
-          maxWidth: 345,
-        },
-      });
-      interface Props {
-        product: Product 
-      }
-      const ProductCard = (props: Props) => {
-        const classes = useStyles();
-        const {id, img, title, description, price} = props.product;
-        return (
-          <Card className={classes.root}>
-            <CardActionArea>
-              <CardMedia src={img}
-                component="img"
-                alt="Contemplative Reptile"
-                height="310"
-                width='auto'
-                title="Contemplative Reptile"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {title}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {description}
-                </Typography>
-                <Typography gutterBottom variant="h6" component="h2">
-                  {price} Kr
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Köp
-              </Button>
-            </CardActions>
-          </Card>
-        );
-      } */

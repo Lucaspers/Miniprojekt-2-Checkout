@@ -1,50 +1,31 @@
-import React from 'react';
+import React from "react";
 import Button from '@material-ui/core/Button';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { ProductConsumer } from "../../context/context";
+import SwishPaypal from './paymentSwishPaypal';
+import ShippmentGroup from './shippment';
 
-
-
-
-export default class CreditCard extends React.Component {
-    state = {
-        formData: {
-            name: '',
-            cardnumber: '',
-            valid: '',
-            cvv: '',
-           
-        },
-        submitted: false,
-    }
-
-    handleChange = (event) => {
-        const { formData } = this.state;
-        formData[event.target.name] = event.target.value;
-        this.setState({ formData });
-    }
-
-    handleSubmit = () => {
-        this.setState({ submitted: true }, () => {
-            setTimeout(() => this.setState({ submitted: false }), 5000);
-           
-         
-
-        });
-    }
-
-
-  
-    render() {
-        const { formData, submitted } = this.state;
+export default function CreditCard() {
+   
+ const valueRef = React.useRef();
         return (
+
+        <ProductConsumer>
+        {value => {
+        const { formData, submitted, handleSubmit, handleChange } = value;
+       
+        return (
+          
             <ValidatorForm
-                ref="form"
-                onSubmit={this.handleSubmit}
-            >
-               
+            
+            ref={valueRef}
+            onSubmit={handleSubmit}
+
+        >
+           <h4>Dina Uppgifter</h4>
                 <TextValidator
-                    label="Name on Card"
-                    onChange={this.handleChange}
+                    label="Name"
+                    onChange={handleChange}
                     name="name"
                     value={formData.name}
                     validators={['required']}
@@ -53,52 +34,123 @@ export default class CreditCard extends React.Component {
                 <br />
                
                 <TextValidator
-                    label="Card Number"
-                    onChange={this.handleChange}
-                    name="cardnumber"
-                    value={formData.cardnumber}
+                    label="Last Name"
+                    onChange={handleChange}
+                    name="lastname"
+                    value={formData.lastname}
                     validators={['required']}
                     errorMessages={['this field is required']}
                 />
                 <br />
                
+               
                 <TextValidator
-                    label="Valid untill"
-                    onChange={this.handleChange}
-                    name="valid"
-                    value={formData.valid}
+                    label="Email"
+                    onChange={handleChange}
+                    name="email"
+                    value={formData.email}
+                    validators={['required', 'isEmail']}
+                    errorMessages={['this field is required', 'email is not valid']}
+                />
+                <br />
+                <TextValidator
+                    label="Password"
+                    onChange={handleChange}
+                    name="password"
+                    value={formData.password}
                     validators={['required']}
                     errorMessages={['this field is required']}
                 />
                 <br />
                 <TextValidator
-                    label="CVV"
-                    onChange={this.handleChange}
-                    name="cvv"
-                    value={formData.cvv}
+                    label="Address"
+                    onChange={handleChange}
+                    name="address"
+                    value={formData.address}
                     validators={['required']}
                     errorMessages={['this field is required']}
                 />
+                <hr/>
+                 
+                <h4>Frakt</h4>
 
-                <br />
+                
+                <ShippmentGroup />
+                <hr/>
                
-               
-                <Button
+                <h4>Betala med Swish eller Paypal</h4>
+                
+                <SwishPaypal />
+
+                
+                <h4>Betala med Kort</h4>
+                
+            <TextValidator
+                label="Name on Card"
+                onChange={handleChange}
+                name="name"
+                value={formData.name}
+                validators={['required']}
+                errorMessages={['this field is required']}
+            />
+            <br />
+           
+            <TextValidator
+                label="Card Number"
+                onChange={handleChange}
+                name="cardnumber"
+                value={formData.cardnumber}
+                validators={['required']}
+                errorMessages={['this field is required']}
+            />
+            <br />
+           
+            <TextValidator
+                label="Valid untill"
+                onChange={handleChange}
+                name="valid"
+                value={formData.valid}
+                validators={['required']}
+                errorMessages={['this field is required']}
+            />
+            <br />
+            <TextValidator
+                label="CVV"
+                onChange={handleChange}
+                name="cvv"
+                value={formData.cvv}
+                validators={['required']}
+                errorMessages={['this field is required']}
+            />
+
+            <br />
+
+            <hr/>
+          
+          <br />
+            <Button
                     color="primary"
                     variant="contained"
                     type="submit"
-                    disabled={submitted}
-                    
+                    disabled={submitted} 
                 >
-                
-                    {
-                        (submitted && 'Your form is submitted!')
-                        || (!submitted && 'Betala')
+               
+                {
+                        (submitted && 'Beställning gick!')
+                        || (!submitted && 'Slutförköp')
                     }
-                </Button>
-              
 
-            </ValidatorForm>
-        );
-    }
-}
+                </Button>         
+          
+           
+        </ValidatorForm>
+           
+             
+               
+           );
+        }}
+      </ProductConsumer>
+      
+    );
+   
+  }

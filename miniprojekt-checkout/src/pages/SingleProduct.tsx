@@ -38,7 +38,7 @@ export default function SingleProductPage() {
     
       <ProductConsumer>
         {value => {
-          const { singleProduct, addToCart, loading } = value;       
+          const { singleProduct, addToCart} = value;       
           const {            
             description,
             id,
@@ -71,7 +71,7 @@ export default function SingleProductPage() {
               <Grid item xs style={{ display: 'flex', justifyContent: 'space-between'}}>  
 
                 <Typography variant="body2" style={{ cursor: 'pointer' }} onClick={() => addToCart(id)}>
-                add to cart
+                        Add to cart
                 </Typography>
                 <Typography variant="body2" style={{ cursor: 'pointer', textDecoration: 'none' }} >
                 <Link

@@ -4,7 +4,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 
 
-
 export default function CartItem() {
   
   return (
@@ -12,7 +11,6 @@ export default function CartItem() {
       {value => {
         const { cartTax, cart, cartTotal,removeItem } = value;
    
-        console.log(cart);
         return (
           <div>
             <ul className="cart-items">

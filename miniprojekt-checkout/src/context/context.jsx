@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import items from '../data/productList';
+
 
 const ProductContext = React.createContext();
 
 // Provider
 // Consumer
+
 class ProductProvider extends Component {
     state = {   
       allProdducts:[],     
@@ -15,15 +17,53 @@ class ProductProvider extends Component {
       tax: 0,
       storeProducts: [],
       singleProduct: {},
-      loading: true
-      
+      loading: true,
+      formData: {
+          name: '',
+          cardnumber: '',
+          valid: '',
+          cvv: '',
+        submitted: false,   
+      },
     };
 
+    
 componentDidMount() {
-    //from contentful items
+//from contentful items
     
     this.setProducts(items);
 }
+
+//form handle
+
+handleChange = (event) => {
+  const { formData } = this.state;
+  formData[event.target.name] = event.target.value;
+  this.setState({ formData });
+}
+
+
+handleSubmit = () => {
+    this.setState({ submitted: true }, () => {
+        setTimeout(() => this.setState({ submitted: false }), 3000);
+        
+       this.clearCart();
+      alert('Din beställning har genomförts. Tack för att du har köpt hos oss!');
+    this.refreshPage();
+    });
+}
+
+
+refreshPage = () => {
+  window.location.reload(false);
+  
+};
+
+refreshPage = () => {
+  window.location.reload(false);
+  
+};
+
 
 // get totals
 getTotals = () => {
@@ -53,7 +93,8 @@ setProducts = products => {
         return product
 });
 
-    // all products
+// all products
+
     let allProdducts = storeProducts;    
     this.setState(
       {
@@ -69,7 +110,8 @@ setProducts = products => {
     );
   };
 
-  // get cart from local storage
+// get cart from local storage
+
   getStorageCart = () => {
     let cart;
     if (localStorage.getItem("cart")) {
@@ -80,16 +122,17 @@ setProducts = products => {
     return cart;
   };
 
-  // get product from local storage
+// get product from local storage
+
   getStorageProduct = () => {
     return localStorage.getItem("singleProduct")
       ? JSON.parse(localStorage.getItem("singleProduct"))
       : {};
   };
 
-  // get totals
+// get totals
+
   getTotals = () => {
-   
       
       let cartItems = 0;
     
@@ -112,8 +155,7 @@ setProducts = products => {
     };
   };
 
-
-  addTotals = () => {
+addTotals = () => {
     const totals = this.getTotals();
     this.setState(
       () => {
@@ -125,15 +167,13 @@ setProducts = products => {
           
         };
       },
-      () => {
-        // console.log(this.state);
-      }
+      
     );
   };
 
 //increment and decrement
 
-  increment = id => {
+increment = id => {
     let tempCart = [...this.state.cart];
     const selectedProduct = tempCart.find(item => {
       return item.id === id;
@@ -150,7 +190,7 @@ setProducts = products => {
     this.syncStorage();
   };
 
-  decrement = id => {
+decrement = id => {
     let tempCart = [...this.state.cart];
     const selectedProduct = tempCart.find(item => {
       return item.id === id;
@@ -171,15 +211,22 @@ setProducts = products => {
     }
   };
 
-
-
-
   //shippment
+
+  freeShipping = () => {
+    const totals = this.getTotals();
+    this.setState({    
+      cartTotal: totals.total   
+    }
+    
+    
+    );
+
+  };
 
   postNord = () => {
     const totals = this.getTotals();
-    this.setState({
-          
+    this.setState({    
       cartTotal: totals.total +45   
     }
     
@@ -190,9 +237,7 @@ setProducts = products => {
 
   dHL = () => {
     const totals = this.getTotals();
-   
-    this.setState({
-          
+    this.setState({  
       cartTotal: totals.total + 80 
     }
    
@@ -216,6 +261,7 @@ setProducts = products => {
   };
 
   //add to cart
+
   addToCart = id => {
     let tempCart = [...this.state.cart];
     let tempProducts = [...this.state.storeProducts];
@@ -244,6 +290,7 @@ setProducts = products => {
   };   
 
   // set single product
+
   setSingleProduct = id => {
     console.log(id);
     let product = this.state.storeProducts.find(item => item.id === id);
@@ -253,11 +300,10 @@ setProducts = products => {
       loading: false
     });
   };
-  //  cart functionality
- 
+
   
-  // removeItem
-  removeItem = id => {
+// removeItem
+removeItem = id => {
     let tempCart = [...this.state.cart];
     tempCart = tempCart.filter(item => item.id !== id);
     this.setState(
@@ -271,7 +317,7 @@ setProducts = products => {
     );
   };
 
-  clearCart = () => {
+clearCart = () => {
     this.setState(
       {
         cart: []
@@ -283,8 +329,7 @@ setProducts = products => {
     );
   };
   
-
-  render() {
+render() {
     return (
       <ProductContext.Provider
         value={{
@@ -297,10 +342,14 @@ setProducts = products => {
           getTotals: this.getTotals,
           increment: this.increment,
           decrement: this.decrement,
+          freeShipping: this.freeShipping,
           postNord: this.postNord,
           dHL: this.dHL,
           exPress: this.exPress,
           setSingleProduct: this.setSingleProduct,
+          handleChange: this.handleChange,
+          handleSubmit: this.handleSubmit,
+          refreshPage: this.refreshPage,
         }}
       >
         {this.props.children}

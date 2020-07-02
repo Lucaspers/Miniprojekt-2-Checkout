@@ -7,9 +7,6 @@ import { Link } from "react-router-dom";
 
 const CartDropdown = () => (
 
-  
-  /* const [visible, setVisible] = useState(true); */
-
     <div className='cart-dropdown'>
         <div />
           <div>
@@ -17,10 +14,9 @@ const CartDropdown = () => (
           </div>       
                
         <CustomButton > 
-          <Link to="/Checkout" className="main-link" style={{ textDecoration: 'none',color: 'black' }} /* onClick={()=> setVisible(!visible)} */>
+          <Link to="/Checkout" className="main-link" style={{ textDecoration: 'none',color: 'black' }} >
                CHECKOUT
           </Link>
-          {/* { visible && <CartDropDown />}    */}
         </CustomButton>
 </div>   
 
