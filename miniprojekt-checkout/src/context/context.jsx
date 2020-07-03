@@ -59,10 +59,6 @@ refreshPage = () => {
   
 };
 
-refreshPage = () => {
-  window.location.reload(false);
-  
-};
 
 
 // get totals
