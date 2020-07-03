@@ -27,33 +27,3 @@ render () {
 }
 }
 export default App;
-
-/* function App() {
-  return (   
-    
-    <div>   
-      <div>
-    <Route  path='/' component={Header} />
-    </div>
-
-    <div>
-    <Route exact path='/' component={HomePage} />
-    <Route  path='/About' component={AboutPage} />
-    <Route  path='/Cart' component={CartPage} />
-    <Route  path='/Checkout' component={CheckoutPage} />
-    <Route  path='/Contact' component={ContactPage} />
-    <Route  path='/About' component={DefaultPage} />
-    <Route  path='/Single' component={SingleProductPage} />   
-    </div>
-    
-    <div>   
-    <Route  path='/' component={Footer} />  
-    </div>
-
-    </div>
-   
-  );
-}
-
-export default App;
- */
