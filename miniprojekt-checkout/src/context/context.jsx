@@ -274,7 +274,7 @@ decrement = id => {
     } else {
       tempItem.count++;
       tempItem.total = tempItem.price * tempItem.count;
-      console.log(tempItem.total);
+      
       tempItem.total = parseFloat(tempItem.total.toFixed(2));
     }
     this.setState(
@@ -292,7 +292,7 @@ decrement = id => {
   // set single product
 
   setSingleProduct = id => {
-    console.log(id);
+   
     let product = this.state.storeProducts.find(item => item.id === id);
     localStorage.setItem("singleProduct", JSON.stringify(product));
     this.setState({

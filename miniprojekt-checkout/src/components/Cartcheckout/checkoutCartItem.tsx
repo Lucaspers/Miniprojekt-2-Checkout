@@ -63,7 +63,7 @@ export default function CartItem() {
       {value => {
         const {cartTax, cart, cartTotal,removeItem, increment, decrement } = value;
    
-        console.log(cart);
+      
         return (
           <Typography>
           <div className={(classes.root, classes.centerTitle)}>
